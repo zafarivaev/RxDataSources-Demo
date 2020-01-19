@@ -33,7 +33,7 @@ class SimpleViewController: UIViewController {
         let tableView = UITableView()
         tableView
             .translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier())
         tableView.tableFooterView = UIView()
         return tableView
     }()
@@ -44,7 +44,7 @@ class SimpleViewController: UIViewController {
 extension SimpleViewController {
     func bindTableView() {
         viewModel.items
-            .bind(to: tableView.rx.items(cellIdentifier: "Cell")) { indexPath, title, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: UITableViewCell.reuseIdentifier())) { indexPath, title, cell in
                 
                 cell.textLabel?.text = title
         }
