@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 class AdvancedGridTableViewCell: UITableViewCell {
     
@@ -69,7 +68,9 @@ extension AdvancedGridTableViewCell {
 // MARK: - UI Setup
 extension AdvancedGridTableViewCell {
     private func setupUI() {
-        overrideUserInterfaceStyle = .light
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         self.contentView.addSubview(collectionView)
         
         collectionView.widthAnchor

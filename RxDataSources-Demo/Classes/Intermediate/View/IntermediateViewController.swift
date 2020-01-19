@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 import RxDataSources
 
 class IntermediateViewController: UIViewController {
@@ -52,7 +51,9 @@ extension IntermediateViewController {
 // MARK: - UI Setup
 extension IntermediateViewController {
     private func setupUI() {
-        overrideUserInterfaceStyle = .light
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
         self.view.backgroundColor = .white
         self.view.addSubview(tableView)
     }

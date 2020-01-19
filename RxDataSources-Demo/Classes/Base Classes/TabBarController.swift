@@ -20,8 +20,6 @@ class TabBarController: UITabBarController {
            
            if #available(iOS 13.0, *) {
                overrideUserInterfaceStyle = .light
-           } else {
-            
            }
            
            let simpleController = SimpleViewController()
